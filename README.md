@@ -1,5 +1,5 @@
 # birdcraft
-A retake on my first site with @SDCore.
+A retake on my first site with [SDCore](https://github.com/SDCore).
 
 ## Description
 BloxCraft was a site developed between me and another user.
@@ -8,7 +8,7 @@ This project seeks to replicate the features that BloxCraft offered with the hel
 
 ## Why PHP?
 The contenders for birdcraft were the following languages:
-* Python (Really good choice, but limited use of language from @SDCore)
+* Python (Really good choice, but limited use of language from [SDCore](https://github.com/SDCore))
 * PHP (Heard PHP7 was really solid and is primarily a web framework)
 * Ruby (Very sluggish, so we ruled this one out)
 * Crystal (Very early builds, not really reliable)
