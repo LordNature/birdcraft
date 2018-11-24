@@ -32,3 +32,10 @@ Because *why not*.
 * [ ] Admin page
 * [ ] Blog with Markdown
 * [ ] Gift system
+
+## Setup
+1. Install Python3 & Pip3
+2. Install virtualenv
+3. Make a virtualenv in repo with `python3 -m venv env`
+4. Run setup; `python3 setup.py install`. This loads all modules.
+5. Profit?!
