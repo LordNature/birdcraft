@@ -10,7 +10,7 @@
 			<h1>birdcraft</h1>
 			<aside>
 				<a href="{{ url_for('index') }}">home</a>
-				<div style="text-align:right">
+				<div style="float:right;display:inline">
 					{% if g.user %}
 						<span>{{ g.user['username'] }}</span>
 						<a href="{{ url_for('auth.logout') }}">logout</a>
