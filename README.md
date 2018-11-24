@@ -13,6 +13,7 @@ The contenders for birdcraft were the following languages:
 * Ruby (Very sluggish, so we ruled this one out)
 * Crystal (Very early builds, not really reliable)
 * Node.js (I mean Javascript... is just *bad*...)
+
 We stuck with PHP because we haven't worked with the language in a very long time.
 PHP7 seems like a welcome refresh with a substantial increase in performance.
 We might get into Hack for some interesting "compiling" PHP but there's no point for our use case.
