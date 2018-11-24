@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 	<head>
 		<meta charst="utf-8">
@@ -5,17 +6,28 @@
 		<title>birdcraft</title>
 	</head>
 	<body>
-		<header>
+		<nav>
 			<h1>birdcraft</h1>
 			<aside>
-				<a href="{{ url_for('home') }}">home</a>
-				<a href="{{ url_for('login') }}">login</a>
+					<a href="{{ url_for('home') }}">home</a>
+				{% if g.user %}
+					<span>{{ g.user['username'] }}</span>
+					<a href="{{ url_for('auth.logout') }}">logout</a>
+				{% else %}
+					<a href="{{ url_for('auth.login') }}">login</a>
+					<a href="{{ url_for('auth.register') }}">register</a>
+				{% endif %}
 			</aside>
 			<hr>
+		</nav>
+		<header>
+			{% block header %}{% endblock %}
 		</header>
 		<main>
-			{% block content %}
-			{% endblock %}
+			{% for message in get_flashed_messages() %}
+				<div class="flash">{{ message }}</div>
+			{% endfor %}
+			{% block content %}{% endblock %}
 		</main>
 		<footer>
 			<!-- not implemented --->
