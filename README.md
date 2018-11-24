@@ -4,7 +4,7 @@ A retake on my first site with [SDCore](https://github.com/SDCore).
 ## Description
 BloxCraft was a site developed between me and another user.
 The site was built on an early version of PHP (5.4).
-This project seeks to replicate the features that BloxCraft offered with the help of the Japanese Bird,*Long-tailed tit*.
+This project seeks to replicate the features that BloxCraft offered with the help of the Japanese Bird, *Long-tailed tit*.
 
 ## Why PHP?
 The contenders for birdcraft were the following languages:
