@@ -1,7 +1,8 @@
 import os
 
 from flask import Flask
-from . import db
+# move to ./controllers when production ready
+from . import db, auth
 
 def create_app(test_config=None):
 	# Creates & configs
@@ -31,5 +32,9 @@ def create_app(test_config=None):
 	# Calls db.py and initializes database
 	# Run `flask init-db` to initalize the database
 	db.init_app(app)
+
+	# Calls auth.py and initializes the blueprint
+	# Read more: http://flask.pocoo.org/docs/1.0/blueprints/
+	app.register_blueprint(auth.bp)
 
 	return app
