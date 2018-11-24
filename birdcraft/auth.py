@@ -3,7 +3,12 @@ Auth.py
 ------
 Handles authentication of the user
 List of functions:
-* init
+* register: registers the user
+* login: logins the user
+* logout: logouts the user
+* load_logged_in_user: gets session cookies
+* login_required: wrapper for view that checks if user logged in
+	* todo: add rank system
 """
 
 import functools
@@ -35,13 +40,13 @@ def register():
 		elif not password:
 			error = 'Password required.'
 		elif db.execute(
-				'SELECT id from user WHERE username = ?', (username)
+				'SELECT id from user WHERE username = ?', (username,)
 			).fetchone() is not None:
 			error = 'Username {} is already registered'.format(username)
 
 		if error is None:
 			db.execute(
-					'INSERT INTO user (username, password) valeus (?, ?)',
+					'INSERT INTO user (username, password) values (?, ?)',
 					(username, generate_password_hash(password))
 				)
 			db.commit()
@@ -61,7 +66,7 @@ def login():
 		error = None
 
 		user = db.execute(
-				'SELECT * FROM user WHERE username = ?', (username)
+				'SELECT * FROM user WHERE username = ?', (username,)
 			).fetchone()
 
 		if user is None:
@@ -87,7 +92,7 @@ def load_logged_in_user():
 		g.user = None
 	else:
 		g.user = get_db().execute(
-				'SELECT * FROM user WHERE id = ?', (user_id)
+				'SELECT * FROM user WHERE id = ?', (user_id,)
 			).fetchone()
 
 @bp.route('/logout')

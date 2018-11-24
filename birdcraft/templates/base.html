@@ -9,14 +9,16 @@
 		<nav>
 			<h1>birdcraft</h1>
 			<aside>
-					<a href="{{ url_for('home') }}">home</a>
-				{% if g.user %}
-					<span>{{ g.user['username'] }}</span>
-					<a href="{{ url_for('auth.logout') }}">logout</a>
-				{% else %}
-					<a href="{{ url_for('auth.login') }}">login</a>
-					<a href="{{ url_for('auth.register') }}">register</a>
-				{% endif %}
+				<a href="{{ url_for('home') }}">home</a>
+				<div style="text-align:right">
+					{% if g.user %}
+						<span>{{ g.user['username'] }}</span>
+						<a href="{{ url_for('auth.logout') }}">logout</a>
+					{% else %}
+						<a href="{{ url_for('auth.login') }}">login</a>
+						<a href="{{ url_for('auth.register') }}">register</a>
+					{% endif %}
+				</div>
 			</aside>
 			<hr>
 		</nav>
