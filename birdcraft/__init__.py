@@ -30,9 +30,6 @@ def create_app(test_config=None):
 	tldr: {{}} expressions outputted to document,
 		{% %} control statements like for and if
 	"""
-	@app.route('/')
-	def home():
-		return "hi"
 
 	# Calls db.py and initializes database
 	# Run `flask init-db` to initalize the database
@@ -41,6 +38,8 @@ def create_app(test_config=None):
 	# Calls auth.py and initializes the blueprint
 	# Read more: http://flask.pocoo.org/docs/1.0/blueprints/
 	app.register_blueprint(auth.bp)
+
+	# Profile.bp handles root route
 	app.register_blueprint(profile.bp)
 
 	return app

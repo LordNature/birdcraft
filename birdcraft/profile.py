@@ -16,6 +16,11 @@ from birdcraft.db import get_db
 
 bp = Blueprint('profile', __name__)
 
+# Index
+@bp.route('/')
+def index():
+	return render_template('index.html')
+
 # Register routing
 @bp.route('/u<id>')
 def profile(id):
