@@ -3,12 +3,11 @@ import os
 from flask import Flask
 from . import db
 
-
 def create_app(test_config=None):
 	# Creates & configs
 	app = Flask(__name__, instance_relative_config=True)
 	app.config.from_mapping(
-		SECRET_KEY='dev',
+		SECRET_KEY='dev', # randomize this in production
 		DATABASE=os.path.join(app.instance_path, 'birdcraft.sqlite'),
 	)
 
