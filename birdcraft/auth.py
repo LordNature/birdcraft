@@ -31,13 +31,13 @@ def register():
 		error = None
 
 		if not username:
-			error = "Username required."
+			error = 'Username required.'
 		elif not password:
-			error = "Password required."
+			error = 'Password required.'
 		elif db.execute(
-				'SELECT id from user WHERE username = ?', (username,)
+				'SELECT id from user WHERE username = ?', (username)
 			).fetchone() is not None:
-			error = "Username {} is already registered".format(username)
+			error = 'Username {} is already registered'.format(username)
 
 		if error is None:
 			db.execute(
@@ -48,22 +48,32 @@ def register():
 			return redirect(url_for('auth.login'))
 
 		flash(error)
+	return render_template('auth/register.html');
 
-# Login route
-@app.route('/login', methods=['GET', 'POST'])
+# Login routing
 def login():
-	if request.method == "POST":
-		usr = request.form['usr']
-		pwd = request.form['pwd']
+	if request.method == 'POST':
+		username = request.form['usr']
+		password = request.form['pwd']
+
+		db = get_db()
 		error = None
 
-		if not usr:
-			error = "Username required."
-		elif not pwd:
-			error = "Password required."
+		user = db.execute(
+				'SELECT * FROM user WHERE username = ?', (username)
+			).fetchone()
 
+		if user is None:
+			error = 'Incorrect username.'
+		elif not check_password_hash(user['password'], password):
+			error = 'Incorrect password.'
+
+		# see http://flask.pocoo.org/docs/1.0/api/#flask.session
 		if error is None:
-			return "worked"
+			session.clear()
+			session['user_id'] = user['id']
+			return redirect(url_for('home'))
 
 		flash(error)
-	return render_template('login.html')
+
+	return render_template('auth/login.html')
