@@ -18,7 +18,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 # Fetches database from our app
 from birdcraft.db import get_db
 
-bp = Blueprint('auth', __name__, url_prefix='/auth')
+bp = Blueprint('auth', __name__)
 
 # Register routing
 @bp.route('/register', methods=('GET', 'POST'))
