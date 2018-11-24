@@ -30,7 +30,6 @@ def create_app(test_config=None):
 	tldr: {{}} expressions outputted to document,
 		{% %} control statements like for and if
 	"""
-
 	# Calls db.py and initializes database
 	# Run `flask init-db` to initalize the database
 	db.init_app(app)
@@ -41,5 +40,6 @@ def create_app(test_config=None):
 
 	# Profile.bp handles root route
 	app.register_blueprint(profile.bp)
+	app.add_url_rule('/', endpoint='index')
 
 	return app
