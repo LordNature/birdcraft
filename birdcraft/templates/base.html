@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<meta charst="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>birdcraft</title>
+	</head>
+	<body>
+		<header>
+			<h1>birdcraft</h1>
+			<aside>
+				<a href="{{ url_for('home') }}">home</a>
+				<a href="{{ url_for('login') }}">login</a>
+			</aside>
+			<hr>
+		</header>
+		<main>
+			{% block content %}
+			{% endblock %}
+		</main>
+		<footer>
+			<!-- not implemented --->
+			<span class="copyright">birdcraft &mdash; <a href="https://github.com/LordNature/birdcraft">made in flask</span>
+		</footer>
+	</body>
+</html>
