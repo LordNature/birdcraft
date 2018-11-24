@@ -17,6 +17,6 @@ from birdcraft.db import get_db
 bp = Blueprint('auth', __name__)
 
 # Register routing
-@bp.route('/register')
-def register():
-	return render_template('auth/register.html');
+@bp.route('/u<id>')
+def profile(id):
+	return render_template('profile.html', id=id);
