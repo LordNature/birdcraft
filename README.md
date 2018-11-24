@@ -22,7 +22,7 @@ Because *why not*.
 
 ## Features
 * [ ] Core design
-* [ ] Login system
+* [x] Login system
 * [ ] Catalog
 * [ ] Badge System
 * [ ] Profile (Social, friends, etc)
