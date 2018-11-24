@@ -51,6 +51,7 @@ def register():
 	return render_template('auth/register.html');
 
 # Login routing
+@bp.route('/login', methods=('GET', 'POST'))
 def login():
 	if request.method == 'POST':
 		username = request.form['usr']
