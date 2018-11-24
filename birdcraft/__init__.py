@@ -25,6 +25,7 @@ def create_app(test_config=None):
 	except OSError:
 		pass
 
+	# see http://flask.pocoo.org/docs/1.0/tutorial/templates/
 	@app.route('/')
 	def home():
 		return "hi"
