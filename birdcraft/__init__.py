@@ -25,7 +25,11 @@ def create_app(test_config=None):
 	except OSError:
 		pass
 
-	# see http://flask.pocoo.org/docs/1.0/tutorial/templates/
+	"""
+	see http://flask.pocoo.org/docs/1.0/tutorial/templates/
+	tldr: {{}} expressions outputted to document,
+		{% %} control statements like for and if
+	"""
 	@app.route('/')
 	def home():
 		return "hi"
