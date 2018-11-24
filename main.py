@@ -3,8 +3,12 @@ app = Flask(__name__)
 
 # Home Routing
 @app.route('/')
-def home():
-	return "Hello World!"
+def index():
+	return render_template('index.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+	return "In development"
 
 # Profile Placeholder
 @app.route('/<id>')
