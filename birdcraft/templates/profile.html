@@ -10,7 +10,10 @@
 		<img id="base" src="{{ url_for('static', filename='avatar/char.png') }}">
 	</div>
 	<div class="desc">
-		<p>my id is {{ user['id'] }}</p>
+		<div class="profile-right">
+			<button>private message</button> <button>add friend</button>
+		</div>
+		<div class="clear"></div>
 	</div>
 </div>
 <div class="profile-content">
