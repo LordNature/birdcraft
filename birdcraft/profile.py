@@ -27,7 +27,7 @@ def index():
 	return render_template('index.html')
 
 # Profile routing
-@bp.route('/u<id>')
+@bp.route('/user/<id>')
 def profile(id):
 	db = get_db()
 	error = None
