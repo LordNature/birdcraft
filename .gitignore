@@ -3,6 +3,4 @@
 /__pycache__/
 /env/
 *.css
-*.css.map
 *.pyc
-*.egg
