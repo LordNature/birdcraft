@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>Dashboard</h1>
+<h1>Dashboard &mdash; Welcome, {{ g.user['username'] }}.</h1>
 {% endblock %}
 
 {% block content %}
 <div class="content">
 	<ul>
 		<li>Settings menu</li>
-		<li>List rank</li>
+		<li>List rank, {{ rank }}</li>
 		<li>Avatar on left</li>
 		<li>View profile button</li>
 		<li>Redeem gift button</li>
-		<li>Show currency</li>
+		<li>Show currency, {{ g.user['coins'] }} Eggcoins</li>
 	</ul>
 </div>
 {% endblock %}

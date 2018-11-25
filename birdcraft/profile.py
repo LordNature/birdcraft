@@ -29,9 +29,15 @@ def index():
 @login_required
 def dashboard():
 	error = None
+	
+	if g.user['rank'] == 1:
+		rank='Admin'
+	else:
+		rank='User'
+
 	if error is not None:
 		flash(error)
-	return render_template('dashboard.html')
+	return render_template('dashboard.html', rank=rank)
 
 # Profile routing
 @bp.route('/user/<id>')

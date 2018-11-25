@@ -46,7 +46,7 @@ def register():
 
 		if error is None:
 			db.execute(
-					'INSERT INTO user (username, password) values (?, ?)',
+					'INSERT INTO user (username, password, rank, coins) values (?, ?, 0, 0)',
 					(username, generate_password_hash(password))
 				)
 			db.commit()
