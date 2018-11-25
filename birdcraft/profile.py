@@ -42,3 +42,20 @@ def profile(id):
 		abort(404)
 
 	return render_template('profile.html', user=user)
+
+# Profile routing
+@bp.route('/users')
+def list_users():
+	db = get_db()
+	error = None
+
+	user = db.execute(
+		'SELECT * from user'
+	).fetchall()
+
+	if user is None:
+		error = 'The galaxy has been eradicated.'.format(id)
+		flash(error)
+		abort(404)
+
+	return render_template('users.html', user=user)
