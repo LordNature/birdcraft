@@ -28,7 +28,7 @@ def dashboard():
 
 # Profile routing
 @bp.route('/user/<id>')
-def profile(id):
+def user(id):
 	db = get_db()
 	error = None
 
@@ -49,7 +49,7 @@ def list_users():
 	db = get_db()
 	error = None
 
-	user = db.execute(
+	users = db.execute(
 		'SELECT * from user'
 	).fetchall()
 
