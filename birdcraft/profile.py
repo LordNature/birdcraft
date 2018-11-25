@@ -28,7 +28,7 @@ def dashboard():
 
 # Profile routing
 @bp.route('/user/<id>')
-def profile(id):
+def user(id):
 	db = get_db()
 	error = None
 
@@ -42,3 +42,20 @@ def profile(id):
 		abort(404)
 
 	return render_template('profile.html', user=user)
+
+# Profile routing
+@bp.route('/users')
+def list_users():
+	db = get_db()
+	error = None
+
+	users = db.execute(
+		'SELECT * from user'
+	).fetchall()
+
+	if user is None:
+		error = 'The galaxy has been eradicated.'.format(id)
+		flash(error)
+		abort(404)
+
+	return render_template('users.html', user=user)
