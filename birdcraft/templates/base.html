@@ -11,6 +11,7 @@
 			<h1>birdcraft</h1>
 			<aside>
 				<a href="{{ url_for('index') }}">home</a>
+				<a href="{{ url_for('profile.users') }}">users</a>
 				<div style="float:right;display:inline">
 					{% if g.user %}
 						<span>{{ g.user['username'] }}</span>
