@@ -22,8 +22,8 @@ def index():
 	return render_template('index.html')
 
 # Dashboard
-@bp.route('/')
-def index():
+@bp.route('/dasboard')
+def dashboard():
 	return render_template('index.html')
 
 # Profile routing
