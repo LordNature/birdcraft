@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{{ user['username'] }}'s Profile</h1>
+{% endblock %}
+
+{% block content %}
+<div class="content">
+	my id is {{ user['id'] }}
+</div>
+{% endblock %}
