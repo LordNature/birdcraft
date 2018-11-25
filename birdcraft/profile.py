@@ -32,10 +32,6 @@ def profile(id):
 	).fetchone()
 
 	if user is None:
-		default = {
-			'username': 'Unknown',
-			'id': 0
-		}
 		error = 'ID {} does not exist.'.format(id)
 		flash(error)
 		abort(404)
