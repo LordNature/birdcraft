@@ -58,4 +58,4 @@ def list_users():
 		flash(error)
 		abort(404)
 
-	return render_template('users.html', user=user)
+	return render_template('users.html', users=users)
