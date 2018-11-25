@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 # move to ./controllers when production ready
 from . import db, auth, profile
 
@@ -33,6 +33,10 @@ def create_app(test_config=None):
 	# Calls db.py and initializes database
 	# Run `flask init-db` to initalize the database
 	db.init_app(app)
+
+	@app.errorhandler(404)
+	def not_found(error):
+		return render_template('404.html'), 404
 
 	# Calls auth.py and initializes the blueprint
 	# Read more: http://flask.pocoo.org/docs/1.0/blueprints/
