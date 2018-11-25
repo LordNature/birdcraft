@@ -21,7 +21,12 @@ bp = Blueprint('profile', __name__)
 def index():
 	return render_template('index.html')
 
-# Register routing
+# Dashboard
+@bp.route('/')
+def index():
+	return render_template('index.html')
+
+# Profile routing
 @bp.route('/u<id>')
 def profile(id):
 	db = get_db()
