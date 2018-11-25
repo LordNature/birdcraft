@@ -8,10 +8,11 @@ List of functions:
 
 # Flask blueprinting services
 from flask import (
-	Blueprint, flash, g, render_template, url_for, abort
+	Blueprint, flash, g, redirect, render_template, url_for, abort
 )
 
 # Fetches database from our app
+from birdcraft.auth import login_required
 from birdcraft.db import get_db
 
 bp = Blueprint('profile', __name__)
@@ -19,12 +20,18 @@ bp = Blueprint('profile', __name__)
 # Index
 @bp.route('/')
 def index():
-	return render_template('index.html')
+	if g.user is None:
+		return render_template('index.html')
+	return redirect(url_for('profile.dashboard'))
 
 # Dashboard
-@bp.route('/dasboard')
+@bp.route('/dashboard')
+@login_required
 def dashboard():
-	return render_template('index.html')
+	error = None
+	if error is not None:
+		flash(error)
+	return render_template('dashboard.html')
 
 # Profile routing
 @bp.route('/user/<id>')
